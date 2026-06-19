@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: "Iman Izadyar - Projects" }}</title>
+
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+
+  <!-- Link to the compiled SCSS stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Include Devicon for language logos -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+
+<body>
+
+  <!-- Low Profile Header -->
+  <header class="subdomain-header">
+    <div class="header-content wrapper">
+      <div class="header-main">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D5603AQGbiHc-dHq1kg/profile-displayphoto-crop_800_800/B56ZnjO7MDHkAI-/0/1760453972728?e=1782950400&v=beta&t=oQ5NH_JfpoYKYcSGCnMy21h_rUsR3FfgVZgBFBxThIM"
+          alt="Iman Izadyar" class="header-profile-pic">
+        <div class="header-text">
+          <div class="header-title-row">
+            <h1>Iman Izadyar</h1>
+            <div class="header-socials">
+              <a href="https://github.com/impossibleiman" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+              </a>
+              <a href="https://linkedin.com/in/iman-izadyar" target="_blank" title="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="mailto:someone@example.com" title="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <p class="header-subtitle">Portfolio Showcase</p>
+          <p class="header-description">A collection of my projects. Use the filters to browse and click projects for
+            more information!</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="https://imanizadyar.com/" class="back-link">&larr; Back to main page</a>
+        <button class="theme-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="wrapper">
+    {{ content }}
+  </main>
+
+  <!-- Project Modal Overlay -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-header">
+        <h2 id="modalTitle">Project Title</h2>
+      </div>
+      <div class="modal-body">
+        <p id="modalDesc">Project description goes here.</p>
+        <div class="modal-actions" id="modalActions">
+          <!-- Links injected here -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="tech-stack-line"></div>
+        <div class="tech-stack" id="modalTech">
+          <!-- Logos injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const targetTheme = isLight ? 'dark' : 'light';
+        if (targetTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+        localStorage.setItem('theme', targetTheme);
+      });
+    });
+
+    // Filter Logic
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        // Update active class
+        filterPills.forEach(p => p.classList.remove('is-active'));
+        pill.classList.add('is-active');
+
+        const filter = pill.getAttribute('data-filter');
+
+        // Filter cards
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Dropdown Logic
+    document.addEventListener('click', (e) => {
+      const toggleBtn = e.target.closest('.dropdown-toggle');
+      if (toggleBtn) {
+        const dropdown = toggleBtn.closest('.github-dropdown');
+        dropdown.classList.toggle('is-active');
+      } else {
+        // Close dropdown if clicking outside
+        document.querySelectorAll('.github-dropdown.is-active').forEach(d => {
+          d.classList.remove('is-active');
+        });
+      }
+    });
+
+    // Modal Logic
+    const modal = document.getElementById('projectModal');
+    const modalCloseBtn = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalActions = document.getElementById('modalActions');
+    const modalTech = document.getElementById('modalTech');
+
+    function openModal(card) {
+      // Extract data from the card
+      const title = card.querySelector('h3').innerText;
+      const desc = card.querySelector('.md-desc').innerHTML;
+      const actions = card.querySelector('.md-actions').innerHTML;
+      const tech = card.querySelector('.md-tech').innerHTML;
+
+      // Inject into modal
+      modalTitle.innerText = title;
+      modalDesc.innerHTML = desc;
+      modalActions.innerHTML = actions;
+      modalTech.innerHTML = tech;
+
+      // Show modal
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => openModal(card));
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+
+  </script>
+</body>
+
+</html>
